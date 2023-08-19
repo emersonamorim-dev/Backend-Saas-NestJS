@@ -241,13 +241,11 @@ curl -X PUT http://localhost:3000/video/<ID> \
 
 curl -X DELETE http://localhost:3000/video/<ID>
 
+```
+
 
 
 
 ## Autor:
 Emerson Amorim
-
-
-
-
 
