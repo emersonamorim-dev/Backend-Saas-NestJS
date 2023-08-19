@@ -4,7 +4,7 @@ Codificação de aplicação para SaaS para uma solução Backend com uso de Fra
 Para o desenvolvimento foi utilizado Banco de dados Mysql para gravar dados juntamente com Prisma para fazer implementação de Migrations e facilitar abstração de código e gerenciamento de Dados. Também utilizado Kafka para gravar Streaming de Dados para aplicação.
 
 
-## Requisitos de Software para a Aplicação Backend-SaaS-NestJS:
+#### Requisitos de Software para a Aplicação Backend-SaaS-NestJS:
 Sistema Operacional:
 
 - Linux (Ubuntu 20.04 LTS ou superior recomendado) ou
@@ -12,15 +12,15 @@ Sistema Operacional:
 - macOS Catalina ou superior.
 
 
-## Node.js (versão 14 ou superior).
+#### Node.js (versão 14 ou superior).
 npm (geralmente vem com o Node.js) ou yarn.
 Framework e Bibliotecas:
 
-## NestJS (última versão).
+#### NestJS (última versão).
 - kafkajs (para integração com Kafka).
 - uuid (para geração de IDs únicos).
 
-## Prisma
+#### Prisma
 
 - Prisma Client:
 - É um query builder auto-gerado para Node.js e TypeScript.
@@ -28,45 +28,45 @@ Framework e Bibliotecas:
 - É gerado a partir do modelo de dados definido no Prisma Schema.
 
 
-## Apache Kafka (última versão estável).
+#### Apache Kafka (última versão estável).
 Banco de Dados (se aplicável, pois não foi mencionado explicitamente nos códigos fornecidos):
 
-## Um sistema de gerenciamento de banco de dados relacional (MySQL) ou
+#### Um sistema de gerenciamento de banco de dados relacional (MySQL) ou
 Um banco de dados NoSQL (por exemplo, MongoDB) dependendo da estrutura de dados e das necessidades da aplicação.
 
 
-## Docker (opcional, mas recomendado para containerização e implantação).
-## Postman (para testar endpoints da API).
+#### Docker (opcional, mas recomendado para containerização e implantação).
+#### Postman (para testar endpoints da API).
 
 
 
 # Endpoints da API
 
-## API de Códigos
+#### API de Códigos
 
-# Criar um novo código
+#### Criar um novo código
 
 curl -X POST http://localhost:3000/codes \
      -H "Content-Type: application/json" \
      -d '{"question": "Sua pergunta aqui"}'
 
-# Obter todos os códigos
+#### Obter todos os códigos
 curl -X GET http://localhost:3000/codes
 
-# Obter um código específico por ID
-# Substitua <ID> pelo ID real do código.
+#### Obter um código específico por ID
+## Substitua <ID> pelo ID real do código.
 
 curl -X GET http://localhost:3000/codes/<ID>
 
-# Atualizar um código específico por ID
-# Substitua <ID> pelo ID real do código e forneça a pergunta atualizada.
+#### Atualizar um código específico por ID
+#### Substitua <ID> pelo ID real do código e forneça a pergunta atualizada.
 
 curl -X PUT http://localhost:3000/codes/<ID> \
      -H "Content-Type: application/json" \
      -d '{"question": "Pergunta atualizada aqui"}'
 
-# Deletar um código específico por ID
-# Substitua <ID> pelo ID real do código.
+#### Deletar um código específico por ID
+#### Substitua <ID> pelo ID real do código.
 
 curl -X DELETE http://localhost:3000/codes/<ID>
 
@@ -74,21 +74,21 @@ curl -X DELETE http://localhost:3000/codes/<ID>
 
 ## API de Conversas
 
-# Criar uma nova conversa
+#### Criar uma nova conversa
 
 curl -X POST http://localhost:3000/conversation \
      -H "Content-Type: application/json" \
      -d '{"prompts": ["Primeira mensagem", "Segunda mensagem"]}'
 
-# Adicionar resposta a uma conversa existente
-# Substitua <ID> pelo ID real da conversa.
+## Adicionar resposta a uma conversa existente
+## Substitua <ID> pelo ID real da conversa.
 
 curl -X POST http://localhost:3000/conversation/<ID>/response \
      -H "Content-Type: application/json" \
      -d '{"response": "Resposta à conversa"}'
 
-# Obter uma conversa específica por ID
-# Substitua <ID> pelo ID real da conversa.
+#### Obter uma conversa específica por ID
+#### Substitua <ID> pelo ID real da conversa.
 
 curl -X GET http://localhost:3000/conversation/<ID>
 
@@ -96,7 +96,7 @@ curl -X GET http://localhost:3000/conversation/<ID>
 
 ## API de Geração de Imagens
 
-# Gerar uma nova imagem
+#### Gerar uma nova imagem
 
 curl -X POST http://localhost:3000/image-generation/generate \
      -H "Content-Type: application/json" \
@@ -106,17 +106,17 @@ curl -X POST http://localhost:3000/image-generation/generate \
            "photoSize": "large"
          }'
 
-# Obter uma imagem específica por ID
-# Substitua <ID> pelo ID real da imagem.
+#### Obter uma imagem específica por ID
+#### Substitua <ID> pelo ID real da imagem.
 
 curl -X GET http://localhost:3000/image-generation/<ID>
 
-# Obter todas as imagens
+#### Obter todas as imagens
 
 curl -X GET http://localhost:3000/image-generation
 
-# Deletar uma imagem específica por ID
-# Substitua <ID> pelo ID real da imagem.
+#### Deletar uma imagem específica por ID
+#### Substitua <ID> pelo ID real da imagem.
 
 curl -X DELETE http://localhost:3000/image-generation/<ID>
 
@@ -124,37 +124,37 @@ curl -X DELETE http://localhost:3000/image-generation/<ID>
 
 ## API de Música
 
-# Gerar uma nova música
+#### Gerar uma nova música
 
 curl -X POST http://localhost:3000/music/generate \
      -H "Content-Type: application/json" \
      -d '{"prompt": "Seu prompt aqui"}'
 
-# Obter uma música específica por ID
-# Substitua <ID> pelo ID real da música.
+#### Obter uma música específica por ID
+#### Substitua <ID> pelo ID real da música.
 
 curl -X GET http://localhost:3000/music/<ID>
 
-# Obter todas as músicas
+#### Obter todas as músicas
 curl -X GET http://localhost:3000/music
 
-# Pesquisar músicas por query
-# Substitua <QUERY> pela sua consulta de pesquisa.
+#### Pesquisar músicas por query
+#### Substitua <QUERY> pela sua consulta de pesquisa.
 
 curl -X GET http://localhost:3000/music/search/<QUERY>
 
-# Tocar uma música específica por ID
-# Substitua <ID> pelo ID real da música.
+#### Tocar uma música específica por ID
+#### Substitua <ID> pelo ID real da música.
 
 curl -X GET http://localhost:3000/music/<ID>/play
 
-# Curtir uma música específica por ID
-# Substitua <ID> pelo ID real da música.
+#### Curtir uma música específica por ID
+#### Substitua <ID> pelo ID real da música.
 
 curl -X GET http://localhost:3000/music/<ID>/like
 
-# Não curtir uma música específica por ID
-# Substitua <ID> pelo ID real da música.
+#### Não curtir uma música específica por ID
+#### Substitua <ID> pelo ID real da música.
 
 curl -X GET http://localhost:3000/music/<ID>/dislike
 
@@ -162,7 +162,7 @@ curl -X GET http://localhost:3000/music/<ID>/dislike
 
 ## API de Pagamentos
 
-# Criar um novo pagamento
+#### Criar um novo pagamento
 
 curl -X POST http://localhost:3000/pay \
      -H "Content-Type: application/json" \
@@ -172,16 +172,16 @@ curl -X POST http://localhost:3000/pay \
            ... (outros campos do DTO de pagamento)
          }'
 
-# Obter um pagamento específico por ID
-# Substitua <ID> pelo ID real do pagamento.
+#### Obter um pagamento específico por ID
+#### Substitua <ID> pelo ID real do pagamento.
 
 curl -X GET http://localhost:3000/pay/<ID>
 
-# Obter todos os pagamentos
+#### Obter todos os pagamentos
 curl -X GET http://localhost:3000/pay
 
-# Atualizar um pagamento específico por ID
-# Substitua <ID> pelo ID real do pagamento e forneça os dados atualizados.
+#### Atualizar um pagamento específico por ID
+#### Substitua <ID> pelo ID real do pagamento e forneça os dados atualizados.
 curl -X PUT http://localhost:3000/pay/<ID> \
      -H "Content-Type: application/json" \
      -d '{
@@ -190,8 +190,8 @@ curl -X PUT http://localhost:3000/pay/<ID> \
            ... (outros campos atualizados do DTO de pagamento)
          }'
 
-# Deletar um pagamento específico por ID
-# Substitua <ID> pelo ID real do pagamento.
+#### Deletar um pagamento específico por ID
+#### Substitua <ID> pelo ID real do pagamento.
 curl -X DELETE http://localhost:3000/pay/<ID>
 
 
@@ -199,21 +199,21 @@ curl -X DELETE http://localhost:3000/pay/<ID>
 
 ## API de Vídeos
 
-# Gerar um novo vídeo
+#### Gerar um novo vídeo
 curl -X POST http://localhost:3000/video/generate \
      -H "Content-Type: application/json" \
      -d '{"prompt": "Seu prompt aqui para gerar o vídeo"}'
 
-# Obter um vídeo específico por ID
-# Substitua <ID> pelo ID real do vídeo.
+#### Obter um vídeo específico por ID
+#### Substitua <ID> pelo ID real do vídeo.
 curl -X GET http://localhost:3000/video/<ID>
 
-# Obter todos os vídeos
+#### Obter todos os vídeos
 
 curl -X GET http://localhost:3000/video
 
-# Atualizar um vídeo específico por ID
-# Substitua <ID> pelo ID real do vídeo e forneça os dados atualizados.
+#### Atualizar um vídeo específico por ID
+#### Substitua <ID> pelo ID real do vídeo e forneça os dados atualizados.
 
 curl -X PUT http://localhost:3000/video/<ID> \
      -H "Content-Type: application/json" \
@@ -224,15 +224,15 @@ curl -X PUT http://localhost:3000/video/<ID> \
            ... (outros campos do modelo de vídeo conforme necessário)
          }'
 
-# Deletar um vídeo específico por ID
-# Substitua <ID> pelo ID real do vídeo.
+#### Deletar um vídeo específico por ID
+#### Substitua <ID> pelo ID real do vídeo.
 
 curl -X DELETE http://localhost:3000/video/<ID>
 
 
 
 
-# Autor:
+## Autor:
 Emerson Amorim
 
 
