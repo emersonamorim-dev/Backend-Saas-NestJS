@@ -38,8 +38,20 @@ Um banco de dados NoSQL (por exemplo, MongoDB) dependendo da estrutura de dados 
 #### Docker (opcional, mas recomendado para containerização e implantação).
 #### Postman (para testar endpoints da API).
 
+#### Como rodar aplicação:
 
+- npm install
+- npm run start
 
+#### Subir as Migrations:
+npx prisma migrate dev --name init
+npx prisma migrate deploy
+
+#### Com Docker rode:
+
+- docker-compose up
+
+```bash
 # Endpoints da API
 
 #### API de Códigos
