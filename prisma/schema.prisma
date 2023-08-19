@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  prompts   String   // Armazene como JSON string
+  responses String   // Armazene como JSON string
+}
+
+
+model Image {
+  id        String   @id @default(uuid())
+  filename  String
+  size      Int
+  createdAt DateTime @default(now())
+}
+
+model Music {
+  id        String   @id @default(uuid())
+  title     String
+  artist    String
+  duration  Int
+  likes     Int
+  dislikes  Int
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id        String   @id @default(uuid())
+  amount    Int
+  method    PaymentMethod
+  status    PaymentStatus
+  createdAt DateTime @default(now())
+}
+
+enum PaymentMethod {
+  pix
+  credit_card
+}
+
+enum PaymentStatus {
+  pending
+  completed
+  failed
+}
+
+model Video {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  videoLink   String?  // Propriedade opcional
+}
+
+model Code {
+  id       Int    @id @default(autoincrement())
+  question String
+}

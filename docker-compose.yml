@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: your_database_name
+      MYSQL_USER: your_username
+      MYSQL_PASSWORD: your_password
+    ports:
+      - "3306:3306"
+    networks:
+      - saas-network
+  
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka-container
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+    ports:
+      - "9092:9092"
+    networks:
+      - saas-network
+  
+  nestjs-app:
+    build:
+      context: ./backend-saas
+    container_name: nestjs-container
+    depends_on:
+      - mysql
+      - kafka
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_USER: your_username
+      DATABASE_PASSWORD: your_password
+      DATABASE_NAME: your_database_name
+      KAFKA_BROKER: kafka:9092
+    networks:
+      - app-network
+
+networks:
+  saas-network:
+    driver: bridge
