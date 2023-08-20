@@ -41,11 +41,21 @@ Um banco de dados NoSQL (por exemplo, MongoDB) dependendo da estrutura de dados 
 #### Como rodar aplicação:
 
 - npm install
+- npm install prisma
+- npm install uuid
 - npm run start
 
 #### Subir as Migrations:
 npx prisma migrate dev --name init
+
 npx prisma migrate deploy
+
+#### Aqui estão alguns comandos adicionais que você pode usar para trabalhar com o Prisma:
+
+- prisma generate - Gera o Prisma Client com base no arquivo schema.prisma.
+- prisma migrate dev - Cria uma migração para atualizar o banco de dados com base nas alterações feitas no arquivo schema.prisma.
+- prisma db push - Aplica uma migração ao banco de dados.
+
 
 #### Com Docker rode:
 
