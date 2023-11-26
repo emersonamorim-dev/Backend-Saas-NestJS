@@ -1,7 +1,7 @@
 # Backend-SaaS-NestJS 
 
-Codificação de aplicação para SaaS para uma solução Backend com uso de Framework NestJS e programado em Typescript  robusta construída com NestJS para aplicações SaaS (Software as a Service).
-Para o desenvolvimento foi utilizado Banco de dados Mysql para gravar dados juntamente com Prisma para fazer implementação de Migrations e facilitar abstração de código e gerenciamento de Dados. Também utilizado Kafka para gravar Streaming de Dados para aplicação.
+Codificação de aplicação para um SaaS para  solução de Backend com uso de Framework NestJS e programado em Typescript para aplicação robusta construída de SaaS (Software as a Service).
+Para o desenvolvimento foi utilizado Banco de dados Mysql para gravar dados juntamente com Prisma para fazer implementação de Migrations e facilitar abstração do código e gerenciamento de Dados.Também utilizado Kafka para Streaming de Dados para aplicação.
 
 
 #### Requisitos de Software para a Aplicação Backend-SaaS-NestJS:
